@@ -14,7 +14,7 @@
 
 ## Exercises
 
-1. [lighttpd exercise](lighttpd-example.md)
+1. [lighttpd Exercise](lighttpd-example.md)
 2. [Docker + Mayhem Exercise](docker-intro.md)
 3. [CMake Exercise](cmake-exercise.md)
 4. [libFuzzer Exercise](libfuzzer-exercise.md)
