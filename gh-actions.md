@@ -53,17 +53,27 @@ In the CMake and libFuzzer exercises, we forked the original or "upstream" mayhe
     cp Dockerfile.template mayhem/Dockerfile
     ```
 
-2. There are two comments marked as TODO in the Dockerfile you'll need to change in your favorite text editor. For the first section, you need to add the build commands from steps 6-8 of the previous section using Dockerfile `RUN` entries. Under the second TODO, you need to change the COPY command so that it copies the libFuzzer executable (that you ran in step 9 of the previous section) into the packaging stage.
+2. There are two comments marked TODO in the Dockerfile you'll need to change in your favorite text editor. For the first comment, you will need to add Dockerfile `RUN` entires to run the build commands from the previous exercise.
+
+  ```
+  RUN mkdir build && \
+    cd build && \
+    CC=clang CXX=clang++
+    make
+  ```
+
+3. 
+  For the second TODO comment, you will need to change the COPY command so that it copies the libFuzzer executable (that you ran in step 9 of the previous section) into the packing stage.
 
     If you're stuck, ask!
 
-3. Once you've created your Dockerfile, you can test the build process by running the following command:
+4. Once you've created your Dockerfile, you can test the build process by running the following command:
 
     ```
     docker build -t ghcr.io/<Your Github Username>/mayhem-cmake-example:latest . -f mayhem/Dockerfile
     ```
 
-4. If the build succeeded without error, you should be able to run the fuzz target inside the Docker container:
+5. If the build succeeded without error, you should be able to run the fuzz target inside the Docker container:
 
     ```
     docker run --rm -it ghcr.io/<Your Github Username>/mayhem-cmake-example /fuzzme
